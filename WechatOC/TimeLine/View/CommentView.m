@@ -160,7 +160,7 @@ static NSString *commentIdentifier = @"commentIdentifier";
 -(void)setLikeArray:(NSMutableArray *)likeArray {
     _likeArray = likeArray;
     //如果没有likeArray，需要重新布局
-    //[self updateConstrains];
+    [self updateConstrains];
     
     
     NSTextAttachment *attachment = [[NSTextAttachment alloc]init];
@@ -184,31 +184,31 @@ static NSString *commentIdentifier = @"commentIdentifier";
 
 -(void)setCommentArray:(NSMutableArray *)commentArray {
     _commentArray = commentArray;
-//    if(commentArray.count > 0) {
-//        if(self.likeArray.count > 0) {
-//            [self.commentTableView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.top.mas_equalTo(self.divideLine.mas_bottom).offset(3);
-//                make.left.mas_equalTo(self.mas_left).offset(0);
-//                make.right.mas_equalTo(self.mas_right).offset(0);
-//                make.bottom.mas_equalTo(self.mas_bottom);
-//            }];
-//        } else {
-//            [self.commentTableView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.top.mas_equalTo(self.divideLine.mas_bottom).offset(0);
-//                make.left.mas_equalTo(self.mas_left).offset(0);
-//                make.right.mas_equalTo(self.mas_right).offset(0);
-//                make.bottom.mas_equalTo(self.mas_bottom);
-//            }];
-//        }
-//        
-//    } else {
-//        [self.commentTableView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.top.mas_equalTo(self.divideLine.mas_bottom);
-//            make.left.mas_equalTo(self.mas_left).offset(0);
-//            make.right.mas_equalTo(self.mas_right).offset(0);
-//            make.height.mas_equalTo(0);
-//        }];
-//    }
+    if(commentArray.count > 0) {
+        if(self.likeArray.count > 0) {
+            [self.commentTableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(self.divideLine.mas_bottom).offset(3);
+                make.left.mas_equalTo(self.mas_left).offset(0);
+                make.right.mas_equalTo(self.mas_right).offset(0);
+                make.bottom.mas_equalTo(self.mas_bottom);
+            }];
+        } else {
+            [self.commentTableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(self.divideLine.mas_bottom).offset(0);
+                make.left.mas_equalTo(self.mas_left).offset(0);
+                make.right.mas_equalTo(self.mas_right).offset(0);
+                make.bottom.mas_equalTo(self.mas_bottom);
+            }];
+        }
+        
+    } else {
+        [self.commentTableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.divideLine.mas_bottom);
+            make.left.mas_equalTo(self.mas_left).offset(0);
+            make.right.mas_equalTo(self.mas_right).offset(0);
+            make.height.mas_equalTo(0);
+        }];
+    }
 }
 
 

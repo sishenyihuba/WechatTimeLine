@@ -91,19 +91,18 @@ static CGFloat itemMargin = 5;
     CGSize jggSize;
     NSInteger count = model.messageBigPics.count;
     CGFloat itemWH = ([UIScreen mainScreen].bounds.size.width - 3*margin - 20 - 50)/3;
-//    if (count == 0) {
-//        jggSize = CGSizeZero;
-//        [self.timeLabel  mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.top.mas_equalTo(self.jggView.mas_bottom);
-//            make.left.mas_equalTo(self.nameLabel.mas_left);
-//        }];
-//        [self.operationBtn  mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.top.mas_equalTo(self.jggView.mas_bottom);
-//            make.left.mas_equalTo(self.contentLabel.mas_right).offset(-5);
-//            make.size.mas_equalTo(CGSizeMake(25, 25));
-//        }];
-//    } else if(count == 4) {
-    if(count == 4) {
+    if (count == 0) {
+        jggSize = CGSizeZero;
+        [self.timeLabel  mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.jggView.mas_bottom);
+            make.left.mas_equalTo(self.nameLabel.mas_left);
+        }];
+        [self.operationBtn  mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.jggView.mas_bottom);
+            make.left.mas_equalTo(self.contentLabel.mas_right).offset(-5);
+            make.size.mas_equalTo(CGSizeMake(25, 25));
+        }];
+    } else if(count == 4) {
          //4张配图
         CGFloat picViewWH = 2 * itemWH + itemMargin;
         jggSize = CGSizeMake(picViewWH, picViewWH);
@@ -133,19 +132,19 @@ static CGFloat itemMargin = 5;
     
     //评论数据
     [self.commentView configureCommentViewWith:model.likes comments:model.commentMessages indexPath:indexPath];
-//    if(model.likes.count ==0 && model.commentMessages.count ==0 ){
-//        [self.bottomLine mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.top.mas_equalTo(self.commentView.mas_bottom);
-//            make.left.right.mas_equalTo(0);
-//            make.height.mas_equalTo(1);
-//        }];
-//    } else{
-//        [self.bottomLine mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.top.mas_equalTo(self.commentView.mas_bottom).offset(margin);
-//            make.left.right.mas_equalTo(0);
-//            make.height.mas_equalTo(1);
-//        }];
-//    }
+    if(model.likes.count ==0 && model.commentMessages.count ==0 ){
+        [self.bottomLine mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.commentView.mas_bottom);
+            make.left.right.mas_equalTo(0);
+            make.height.mas_equalTo(1);
+        }];
+    } else{
+        [self.bottomLine mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.commentView.mas_bottom).offset(margin);
+            make.left.right.mas_equalTo(0);
+            make.height.mas_equalTo(1);
+        }];
+    }
     
 }
 
