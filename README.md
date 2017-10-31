@@ -20,4 +20,4 @@
 We welcome any contributions. If u have any issue ,please let me know. -- my Email address is sishenyihubaba@gmail.com
  
 ## License
-Hero is available under the MIT license. See the LICENSE file for more info.
+This demo is available under the MIT license. See the LICENSE file for more info.
